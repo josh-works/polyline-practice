@@ -82,6 +82,12 @@ PointOfInterest.create(
 )
 ```
 
+
+OK! making big gains!
+
+First, thanks to https://www.flaticon.com/authors/surang for the icon i'm now using for roundabouts.
+
+
 ## 2022-02-16
  
  ```
