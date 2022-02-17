@@ -53,7 +53,34 @@ I tend to record my work in a style best described as "daily captain's report" a
 
 > nearly-incomprehensible strings of thought that make me question my own sanity
 
+## 2022-02-17
 
+Lets get rid of this favicon i'm rendering: https://josh.works/favicon.ico, which I then swapped out with the favicon.ico file in the `public` directory.
+
+I'd like to use these favicon/icon things:
+
+![icons](/images/icons.jpg)
+
+Oh heck yeah:
+
+![icons](/images/the-change.jpg)
+
+
+![icons](/images/we-have-icons.jpg)
+
+If no icon given, it'll be the `default` icon, which might be... the easiest .ico i can find. If given, they'll use something.
+
+I like the idea of being able to "tag" the POI w/an icon. maybe multiples, maybe not. 
+
+```ruby
+# seeds.rb
+PointOfInterest.create(
+  description: description,
+  latitude: latitude,
+  longitude: longitude,
+  icon: ''
+)
+```
 
 ## 2022-02-16
  
@@ -72,14 +99,15 @@ description = "a dangerous intersection (at times) for everyone who uses it. cou
 latitude =  39.766444,  
 longitude = -105.228456
 PointOfInterest.create(
-  name: name
-  ,description: description
-  ,latitude: latitude
-  ,longitude: longitude
+  description: description,
+  latitude: latitude,
+  longitude: longitude
 )
 ```
 
 Then visit `/poi_path/1` and this should have a little pin on a leaflet map. 
+
+
 
 That's the plan. Let's add ourselves our standard gems, `pry-rails` and `faker`
 
