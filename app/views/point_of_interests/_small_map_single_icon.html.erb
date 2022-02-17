@@ -3,6 +3,14 @@
 </div>
 
 <script type="text/javascript">
+  // var wheelchairConfused = new MobilityIcon({iconUrl: 'wheelchair-confused-red.png'});
+  // var bikerWalkerAccident = new MobilityIcon({iconUrl: 'biker-walker-accident-red.png'});
+  // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
+  // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
+  var driverPed = new MobilityIcon({iconUrl: "<%= image_url('dd-walker-accident-red.png') %>"  });
+  var roundabout = new MobilityIcon({iconUrl: "<%= image_url('crossroad.png') %>"  });
+ 
+  
   var map = L.map("map").setView([39.766414, -105.228871], 19);
   L.tileLayer(
     'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -17,10 +25,9 @@
       shadowSize:   [10,10],
       }
     });
-  var driverBikerAccident = new MobilityIcon({iconUrl: "<%= image_url('biker-walker-accident-red.png') %>"  });
  
   // car-bike conflict areas
-  L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(map)
+  L.marker([latitude, longitude], {icon: roundabout}).addTo(map)
    .bindPopup(description);
  
   var popup = L.popup();

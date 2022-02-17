@@ -7,6 +7,14 @@
     latitude = "<%= @point_of_interest.latitude %>"
     longitude = "<%= @point_of_interest.longitude %>"
     description = "<%= @point_of_interest.description %>"
+    
+    // var wheelchairConfused = new MobilityIcon({iconUrl: 'wheelchair-confused-red.png'});
+    // var bikerWalkerAccident = new MobilityIcon({iconUrl: 'biker-walker-accident-red.png'});
+    // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
+    // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
+    // var driverPed = new MobilityIcon({iconUrl: "<%= image_url('crossroad.png') %>"  });
+    // var roundabout = new MobilityIcon({iconUrl: "<%= image_url('crossroad.png') %>"  });
+    // 
     console.log(latitude, longitude);
     var map = L.map(regMapDiv).setView([latitude, longitude], 19);
     L.tileLayer(
@@ -31,18 +39,12 @@
         shadowSize:   [10,10],
         }
       });
-    // var wheelchairConfused = new MobilityIcon({iconUrl: 'wheelchair-confused-red.png'});
-    // var bikerWalkerAccident = new MobilityIcon({iconUrl: 'biker-walker-accident-red.png'});
-    // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
-    // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
-    var driverBikerAccident = new MobilityIcon({iconUrl: "<%= image_url('biker-walker-accident-red.png') %>"  });
-   
-    // car-bike conflict areas
-    L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(map)
-     .bindPopup(description);
-   
-    L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(mymap)
-     .bindPopup(description);
+
+    // L.marker([latitude, longitude], {icon: driverPed}).addTo(map)
+    //  .bindPopup(description);
+    // 
+    // L.marker([latitude, longitude], {icon: roundabout}).addTo(mymap)
+    //  .bindPopup(description);
      
      // diagnostic/placement helpers
     var popup = L.popup();

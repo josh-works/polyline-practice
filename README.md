@@ -87,6 +87,117 @@ OK! making big gains!
 
 First, thanks to https://www.flaticon.com/authors/surang for the icon i'm now using for roundabouts.
 
+-----------
+
+Screaming progress, honestly. Redoing my seeds file in a huge way, _and_ thinking better about coordinates on these things.
+
+_and_ getting better at quickly iterating on data modeling.
+
+I had gone back and forth on adding a `coords` datatype, then googling what to store them as, blah blah blah, postgis, arrays, I'd save an array as a string to the DB, then I remembered seeing some of THAT hell at ThreatSim. 
+
+So, we're just gonna keep adding columns, so we'll have `coords`, `lat`, and `long`. Coords will "flow into" lat/long, which will be the source of truth. 
+
+So, maybe we'll write lat/long straight to the DB (as floats), and leave coords empty.
+
+But sometimes, if all we have are coords, we'll populate lat/long appropriately.
+
+(coords are easier for the user to enter)
+
+Also, check out my updated seeds:
+
+```ruby
+# seeds.rb
+# coordinates from https://3geonames.org/randomland.USA, and a bunch of clicking
+coords = %i[    
+  39.76622709413315,-105.22932827525855
+  39.76622709413315,-105.22932827525855
+  39.76507172805369,-105.22876739501953
+  39.75840785139829,-105.22524833679199
+  39.7467280172376,-105.22061347961427
+  39.75425084928869,-105.22481918334962
+  39.76071718860089,-105.22627830505371
+  39.763141909318925,-105.22679328918458
+  39.76485730642079,-105.2269220352173
+  39.76657266078731,-105.2268147468567"
+]
+# icons
+icons = %i[
+  biker-walker-accident-red.png
+  car-bike-crash-red.png
+  driver-walker-accident-red.png
+  wheelchair-confused-red.png
+  crossroad.png
+]
+
+description = "a dangerous intersection (at times) for everyone who uses it. could use a roundabout, if the entire street could accommodate it/drivers knew what to expect"
+PointOfInterest.find_or_create_by(
+  description: description,
+  coords: coords.sample,
+  icon: icons.sample
+)
+
+local_intersection = PointOfInterest.find_or_create_by(
+  description: "This is a dangerous street for cyclists; drivers get annoyed with cyclists, and vice versa.",
+  coords: coords.sample,
+  icon: icons.sample
+)
+p local_intersection
+
+PointOfInterest.find_or_create_by(
+  coords: coords.sample,
+  description: "Tons of people take this path, but it's unpaved and uneaven. Particularly dangerous at night or when there's snow, or if pushing a stroller.",
+  icon: icons.sample
+)
+
+PointOfInterest.find_or_create_by(
+  coords: coords.sample,
+  description: "This could be one of those (many) roundabouts",
+  icon: icons.sample
+)
+```
+
+I actually still want the lat/long I had on earlier iterations, so gonna ctrl-z my way back into what I want:
+
+```ruby
+PointOfInterest.find_or_create_by(
+  description: "a dangerous intersection (at times) for everyone who uses it. could use a roundabout, if the entire street could accommodate it/drivers knew what to expect",
+  latitude: 39.7664442,
+  longitude: -105.228456,
+  icon: car_person
+)
+
+local_intersection = PointOfInterest.find_or_create_by(
+  description: "This is a dangerous street for cyclists; drivers get annoyed with cyclists, and vice versa.",
+  latitude: 39.766444,
+  longitude: -105.228456,
+  icon: bike_person
+)
+p local_intersection
+
+PointOfInterest.find_or_create_by(
+  latitude: 39.756113,
+  longitude: -105.229665,
+  description: "Tons of people take this path, but it's unpaved and uneaven. Particularly dangerous at night or when there's snow, or if pushing a stroller.",
+  icon: person
+)
+
+PointOfInterest.find_or_create_by(
+  latitude: 39.764528,
+  longitude: -105.227446,
+  description: "This could be one of those (many) roundabouts",
+  icon: roundabout
+)
+```
+
+Wow. Huge improvements here. My seeds file is lit, upgraded the `PointOfInterest` model.
+
+Learning to move faster and faster.
+
+Pausing here with icons. When I pick up:
+
+- How to assign icons on object creation, and have them get referenced/made visible in the view. (Roundabout vs. something else)
+- gonna have to step up my javascript game here real quick.
+- this all feels v. educational, but I'm not capturing enough in Anki. Slash any in Anki.
 
 ## 2022-02-16
  
@@ -186,6 +297,7 @@ and it looks great! A little styling work, and I think we're good to go!
 I also added a header. This is looking pretty good!
 
 The new form looks good to. I want to add a one-click "wherever you click on the map, the lat/long fields get populated with that value" feature.
+
 
 
 -----------

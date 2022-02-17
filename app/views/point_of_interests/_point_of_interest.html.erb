@@ -14,7 +14,7 @@
     latitude = "<%= point_of_interest.latitude %>"
     longitude = "<%= point_of_interest.longitude %>"
     description = "<%= point_of_interest.description %>"
-    iconType = "<%= point_of_interest.icon %>"
+    iconType = "<%= point_of_interest.description %>"
     console.log(latitude, longitude);
     var map = L.map(regMapDiv).setView([latitude, longitude], 19);
     L.tileLayer(
@@ -44,7 +44,8 @@
     // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
     // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
     var driverBikerAccident = new MobilityIcon({iconUrl: "<%= image_url('biker-walker-accident-red.png') %>"  });
-   
+    var crossroad = new MobilityIcon({iconUrl: "<%= image_url('crossroad.png') %>"  });
+    
     // car-bike conflict areas
     L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(map)
      .bindPopup(description);
