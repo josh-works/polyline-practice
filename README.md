@@ -93,7 +93,11 @@ I've got it now all reading from the DB. Let's create a few more locations, and 
 
 and it looks great! A little styling work, and I think we're good to go!
 
-I also added a header
+I also added a header. This is looking pretty good!
+
+The new form looks good to. I want to add a one-click "wherever you click on the map, the lat/long fields get populated with that value" feature.
+
+
 -----------
 
 
