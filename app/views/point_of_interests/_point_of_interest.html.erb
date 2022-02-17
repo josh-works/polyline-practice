@@ -4,66 +4,7 @@
     <%= point_of_interest.description %>
   </p>
   
-  <!-- leaflet map, make partial later -->
-  <div class="h-80 px-5">
-    <div id="map" class="h-40 flex"></div>
-    <div id="map-sat-view" class="h-40 flex"></div>
-  </div>
-
-<script type="text/javascript">
-  latitude = "<%= point_of_interest.latitude %>"
-  longitude = "<%= point_of_interest.longitude %>"
-  description = "<%= point_of_interest.description %>"
-  console.log(latitude, longitude);
-  var map = L.map('map').setView([latitude, longitude], 19);
-  L.tileLayer(
-    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 22,
-    }).addTo(map);
-
-  var mymap = L.map('map-sat-view').setView([latitude, longitude], 19);
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 22,
-    id: 'mapbox/satellite-v9',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1Ijoiam9zaHdvcmtzIiwiYSI6ImNrcWk2NzUxeTJhbm8yem4weDFreTY5bjQifQ.Qja1F9B1-i7hK3KOvSYAvg'
-  }).addTo(mymap);
-      
-  var MobilityIcon = L.Icon.extend({
-    options: {
-      shadowUrl: '',
-      iconSize:     [60, 60],
-      shadowSize:   [10,10],
-      }
-    });
-  // var wheelchairConfused = new MobilityIcon({iconUrl: 'wheelchair-confused-red.png'});
-  // var bikerWalkerAccident = new MobilityIcon({iconUrl: 'biker-walker-accident-red.png'});
-  // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
-  // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
-  var driverBikerAccident = new MobilityIcon({iconUrl: "<%= image_url('biker-walker-accident-red.png') %>"  });
- 
-  // car-bike conflict areas
-  L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(map)
-   .bindPopup(description);
- 
-  L.marker([latitude, longitude], {icon: driverBikerAccident}).addTo(mymap)
-   .bindPopup(description);
-   
-   // diagnostic/placement helpers
-var popup = L.popup();
-function onMapClick(e) {
-  popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(map);
-  console.log("You clicked the map at " + e.latlng);
-}
-
-map.on('click', onMapClick);
-mymap.on('click', onMapClick);
-</script>
+  <%= render partial: "mapbox_map" %>
 
 
   <p class="my-5">
