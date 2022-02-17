@@ -8,14 +8,24 @@ A `polyline` is a strange datatype that seems sorta like an SVG. It's mathematic
 
 On Wikipedia, `polyline` redirects to https://en.wikipedia.org/wiki/Polygonal_chain, which seems... nearly incomprehensible. 
 
-Here's what a polyline looks like, drawn on a map. Or, many polylines, rather:
+I stumbled into the concept when copying a really cool python repository. I got it working! I can render a map of all of my Strava-recorded runs, centered on my home town of Golden, Colorado. Check it out:
 
 ![many](/images/many-polylines.jpg)
 
 You can view an interactive version of this app here: https://cryptic-sea-38287.herokuapp.com
 
+That looks cool, right! And polylines, since they're 'mathmatically defined', retain their "resolution" at many different levels of map scales:
+
+![many-resolutions](/images/many-resolutions.jpg)
+
+This is a big deal, and kinda blows my mind, because here's what a "short" polyline looks like:
+
+```
+efyqFzj_aSBI?B?APEJANDF?NMPAPIb@@\CLIVIN@fBVLARKFKDCVAZe@REDIPQBIHKNAJEN@NKDIJAZKTCJGXBFDJLDPAZHZ?XJf@HLL`@F^@^CVB\CZ?`AA\I^?RI^g@nAGXFZNTDNPX\Rb@DNHp@HTC?DKTABB?@ECB?D?A@@G??A@BB??CB?@BA@?C?@ABD?E?ACBGHKDC?FUR?A?BCC?@@A@@CHAA^Px@T`BVnBd@tAV`D~@zB`@l@Vh@`@tAnAbBvBz@|@zAtAtAfAPTNVt@hBj@jArAbCv@lAl@pAj@bBj@hCb@`EPv@Tr@LPl@j@l@z@Xl@Rn@j@xAHJJE\YLYD]A{@Ky@iAaFAOH]DENAF@FDLXp@dCv@`Ed@pBd@`DTnAz@|CvCbMbA|DpE~LnApCx@tBtJrSz@nAJTHXD`@ZtCb@`DXpA`@nAT`@jArA|CtD|AxAlCxBf@f@r@xBbBzDVt@j@pATr@ATm@f@kAxAqAfAgD`DiB|AwCxCmCvBuBtBcAx@iE~DuDbDyDvDkA~@CF@NVZh@`Aj@|@DPEC@B?CFE@SFBG?FC?AA@FQB@IPFIBKD?DG?CC?DE?BCE@BC?@GBFA?B?CCBBEBAGBA?@?AC@AD?AKFH??KCEF@FD?CCA@A@FACABB@?CDA?@E?ACCAD@IMDF?BE@AA?@?GDDE?BEA@CCD@AB?ECDB@ECF@AA?@AAD@G@?C@@CA@BBAGEFHEE?DACB?ACDBGCCFBIDDMAHBEEBDEI?DF@ICBD@E?D?CF@GAD?IBFAEA@FBE?CBDEB@@?CD@BGDD?FCEBBABAA@B@CGA?C@F?IA@?P@AGJ@BAG@A@DEDBEJ@C@AKC@B?C?H@K?MRERE?OUOk@GAEIOg@m@aAAEDO\SRWLSBKNKJA^]JS?UKOa@iAGu@K_@@GZKb@YTC`@SPGHED?JIRCDBLCJKXAPIJOTQHUTc@Na@nAkBVOLSVITQRERWD@^M\[^OHOLIX]d@y@^ETMXAZLx@Fr@XLOZSHITCPGBYECFMbBuAj@k@^QT_@VMj@{@\YPWFGPCVKlAeAf@m@NGFKHADINOJQRQLCFEDM@DJORK^i@@@?JJZBCBFAABGH@GKC?@BC?@KAHCEDJ?@MJADAAC@OKBIPIPFDCEB@@CHJCQ?UDGHCA@DEADA
+```
+
 This project is about:
-- letting me get my feet under me with how `rails` and `leaflet` can play together
+- letting me get my feet under me with how `rails` and `leaflet` and different "gis" datatypes (like our friend the `polyline`) can play together.
 - learning to think about map/data stuff in CRUD-friendly ways. PostGIS? Polylines?
 
 I've already sunk quite a lot of time into related projects, so while I'm not exactly starting from scratch, I have hardly obtained much specialized information. _grumble grumble_
