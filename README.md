@@ -1,5 +1,19 @@
 I've got a project I want to build, and it involves "data-visualization stuff" that mixes a bunch of interesting technologies. 
 
+# About This Project
+
+I am trying to wrap my head around polylines.
+
+A `polyline` is a strange datatype that seems sorta like an SVG. It's mathematically-defined, so infinitely scablable, blah blah blah. 
+
+On Wikipedia, `polyline` redirects to https://en.wikipedia.org/wiki/Polygonal_chain, which seems... nearly incomprehensible. 
+
+Here's what a polyline looks like, drawn on a map. Or, many polylines, rather:
+
+![many](/images/many-polylines.jpg)
+
+You can view an interactive version of this app here: https://cryptic-sea-38287.herokuapp.com
+
 This project is about:
 - letting me get my feet under me with how `rails` and `leaflet` can play together
 - learning to think about map/data stuff in CRUD-friendly ways. PostGIS? Polylines?
@@ -23,6 +37,12 @@ It's worth tens of thousands. I'll make whatever I make as accessible as possibl
 
 To click back to the current demo, it's available here: https://leaflet-gis-rails-practice.herokuapp.com/.
 
+----------------
+
+I tend to record my work in a style best described as "daily captain's report" and 
+
+> nearly-incomprehensible strings of thought that make me question my own sanity
+
 
 
 ## 2022-02-16
@@ -36,7 +56,7 @@ rails g scaffold PointOfInterest name:string latitude:float longitude:float desc
 ```
  
 ```ruby
-# seeds.rb
+# seeds.rb, aspirational
 name = "intersection in Golden, CO"
 description = "a dangerous intersection (at times) for everyone who uses it. could use a roundabout, if the entire street could accommodate it/drivers knew what to expect"
 latitude =  39.766444,  
@@ -49,16 +69,16 @@ PointOfInterest.create(
 )
 ```
 
-Then visit `/poi/1` and this should have a little pin on a leaflet map. 
+Then visit `/poi_path/1` and this should have a little pin on a leaflet map. 
 
 That's the plan. Let's add ourselves our standard gems, `pry-rails` and `faker`
 
 ooookay. 
 
-Spent maybe 45 minutes digging into this, quickly, didn't take notes, so now I'm going to try to:
+Spent maybe 45 minutes digging into this, quickly, didn't take notes, but I got good stuff accomplished:
 
 1. For starters, source necessary JS/CSS in application.html.erb. That'll make the available everywhere.
-2. Copy/paste solid "map" stuff into a view, sort out everything there
+2. Copy/paste solid "map" stuff into a view, and it, works.
 
 I referred to lots of my prior art on leaflet, html stuff, and more. God I barely can hold a single thing in my head. 
 
@@ -66,7 +86,7 @@ I'm liking where this is going, though:
 
 ![progress](/images/we-have-rendered-an-icon.jpg)
 
-and another 30, making more progress. Here's what I can get on page-load:
+and another 30 minutes, making more progress. Here's what I can get on page-load:
 
 ![mvp](/images/mvp.jpg)
 
@@ -98,7 +118,7 @@ I think I want just the lat and long in a DB, along with a description
 (maybe add tags later)
 
 ```ruby
-# db/seeds.rb
+# db/seeds.rb # aspirational, but ended up being what I'm using
 local_intersection = PointOfInterest.create(
   description: "This is a dangerous street for cyclists; drivers get annoyed with cyclists, and vice versa.",
   latitude: 39.766444,
