@@ -1,3 +1,29 @@
+I've got a project I want to build, and it involves "data-visualization stuff" that mixes a bunch of interesting technologies. 
+
+This project is about:
+- letting me get my feet under me with how `rails` and `leaflet` can play together
+- learning to think about map/data stuff in CRUD-friendly ways. PostGIS? Polylines?
+
+I've already sunk quite a lot of time into related projects, so while I'm not exactly starting from scratch, I have hardly obtained much specialized information. _grumble grumble_
+
+I could make this entire project a lesson, tutorial, basis of a talk, basis of a one-day work-shop. Depends on set and setting. What I also know is that I can teach a lot of useful things quickly, and I'd like to do just that. Could you [sponsor this open-source work?](https://github.com/sponsors/josh-works). 
+
+I currently want to get at least ten sponsorships of at least $100/each. (obviously, some would be higher in dollar figure, and I wouldn't count sponsorships below $100 towards that count). 
+
+I _mostly_ want sponsors that are directly invested in the outcome of what I'm creating. If I am using Rails, Heroku, Leaflet, Mapbox, or doing things related to data modeling, database operations, "production-safe" database stuff, etc, and that is something that would be useful to you to learn about, I'd like you to fund _me_ for _this project_. 
+
+Based off the level of funding, i'll tailor some of my work product in appropriate ways.
+
+Oh, and if it gets at least a few hundred, i'll "test drive" the material at least once or twice, with one or two of you, and update the guide appropriately.
+
+I'll make sure that you can SAIL through this, insanely fast, and build a very close version of what I've built, and know how to modify it and customize it to your own interests. 
+
+It's worth tens of thousands. I'll make whatever I make as accessible as possible to as many people as possible. 
+
+
+To click back to the current demo, it's available here: https://leaflet-gis-rails-practice.herokuapp.com/.
+
+
 
 ## 2022-02-16
  
