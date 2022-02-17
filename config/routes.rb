@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "points_of_interest#index"
+  root "point_of_interests#index"
 end

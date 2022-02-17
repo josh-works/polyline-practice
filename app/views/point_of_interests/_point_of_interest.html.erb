@@ -3,6 +3,58 @@
     <strong class="block font-medium mb-1">Name:</strong>
     <%= point_of_interest.name %>
   </p>
+  
+  <!-- leaflet map, make partial later -->
+  <div class="h-48">
+    <div id="map" class="h-full flex"></div>
+    <div id="map-sat-view" class="h-full flex"></div>
+  </div>
+
+
+<script type="text/javascript">
+  var map = L.map('map').setView([39.766444, -105.228456], 19);
+  L.tileLayer(
+    'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 22,
+    }).addTo(map);
+      
+
+  var mymap = L.map('map-sat-view').setView([39.766444, -105.228456], 19);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 22,
+    id: 'mapbox/satellite-v9',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoiam9zaHdvcmtzIiwiYSI6ImNrcWk2NzUxeTJhbm8yem4weDFreTY5bjQifQ.Qja1F9B1-i7hK3KOvSYAvg'
+  }).addTo(mymap);
+      
+  var MobilityIcon = L.Icon.extend({
+    options: {
+      shadowUrl: '',
+      iconSize:     [30, 30],
+      shadowSize:   [10,10],
+      }
+    });
+      
+      
+  
+  // var wheelchairConfused = new MobilityIcon({iconUrl: 'wheelchair-confused-red.png'});
+  // var bikerWalkerAccident = new MobilityIcon({iconUrl: 'biker-walker-accident-red.png'});
+  // var driverWalkerAccident = new MobilityIcon({iconUrl: 'driver-walker-accident-red.png'});
+  // var walkerAccident = new MobilityIcon({iconUrl: 'walker-accident-red.png'});
+  var driverBikerAccident = new MobilityIcon({iconUrl: 'https://josh.works/favicon.ico'  });
+ 
+    // car-bike conflict areas
+    L.marker([39.766444, -105.228456], {icon: driverBikerAccident}).addTo(map)
+     .bindPopup("This is a dangerous street for cyclists; drivers get annoyed with cyclists, and vice versa.");
+   
+    L.marker([39.766444, -105.228456], {icon: driverBikerAccident}).addTo(mymap)
+     .bindPopup("This is a dangerous street for cyclists; drivers get annoyed with cyclists, and vice versa.");
+   
+
+</script>
+
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Latitude:</strong>
