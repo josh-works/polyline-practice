@@ -1,3 +1,4 @@
+PointOfInterest.destroy_all
 # coordinates from https://3geonames.org/randomland.USA, and a bunch of clicking
 coords = %i[    
   39.76622709413315,-105.22932827525855
@@ -9,7 +10,7 @@ coords = %i[
   39.76071718860089,-105.22627830505371
   39.763141909318925,-105.22679328918458
   39.76485730642079,-105.2269220352173
-  39.76657266078731,-105.2268147468567"
+  39.76657266078731,-105.2268147468567
 ]
 
 # icons
@@ -37,7 +38,7 @@ local_intersection = PointOfInterest.find_or_create_by(
   longitude: -105.228456,
   icon: icons.sample
 )
-puts local_intersection 
+puts local_intersection.inspect 
 # sanity check that stuff is working, see what ID got written to db, etc
 
 PointOfInterest.find_or_create_by(
@@ -53,3 +54,11 @@ PointOfInterest.find_or_create_by(
   description: "This could be one of those (many) roundabouts",
   icon: roundabout
 )
+
+5.times do |n|
+  puts PointOfInterest.create(
+    description: "#{n} thingamabob",
+    icon: icons.sample,
+    coords: coords.sample,
+  ).inspect
+end
