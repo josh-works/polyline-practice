@@ -1,21 +1,23 @@
 <!-- leaflet map, make partial later -->
   <div class="h-80 px-5">
-    <div id="map" class="h-40 flex"></div>
-    <div id="map-sat-view" class="h-40 flex"></div>
+    <div id="<%= 'map-' + @point_of_interest.id.to_s %>" class="h-40 flex"></div>
+    <div id="<%= 'map-sat-view' + @point_of_interest.id.to_s %>" class="h-40 flex"></div>
   </div>
 
   <script type="text/javascript">
+    regMapDiv = "<%= 'map-' + @point_of_interest.id.to_s %>"
+    satMapDiv = "<%= 'map-sat-view' + @point_of_interest.id.to_s %>"
     latitude = "<%= @point_of_interest.latitude %>"
     longitude = "<%= @point_of_interest.longitude %>"
     description = "<%= @point_of_interest.description %>"
     console.log(latitude, longitude);
-    var map = L.map('map').setView([latitude, longitude], 19);
+    var map = L.map(regMapDiv).setView([latitude, longitude], 19);
     L.tileLayer(
       'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 22,
       }).addTo(map);
 
-    var mymap = L.map('map-sat-view').setView([latitude, longitude], 19);
+    var mymap = L.map(satMapDiv).setView([latitude, longitude], 19);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 22,
