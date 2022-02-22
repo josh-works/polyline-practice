@@ -53,6 +53,32 @@ I tend to record my work in a style best described as a mix of "daily captain's 
 
 > nearly-incomprehensible strings of thought that make me question my own sanity
 
+## 2022-02-19
+
+Two days later. Been a huge two days. Plumbing problems. Non-abusive treatment problems. But I've made HUGE progress.
+
+I just hop-scotched around a bit figuring this thing out. finally figured out (maybe) what the deal is with the JS `fetch` API. It _might_ be what lets me fetch data from the backend.
+
+Every view that I scaffold comes with a .json file that returns the same data as the view. I can `fetch` it, and build my collections out of that. Not trivial, and not quite the full (modern) Rails way (TM), I dont think, but it's close enough.
+
+I'm just doing:
+
+```javascript
+fetch('http://localhost:3000/point_of_interests.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+Almost got it. That didn't work, but this did:
+
+```javascript
+var obj;
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(res => res.json())
+  .then(data => obj = data)
+  .then(() => console.log(obj))
+```
+
 ## 2022-02-17
 
 Phew. Tons of work on this yesterday. Not doing much today, just kinda poking around, thinking what I wanted to do next.
