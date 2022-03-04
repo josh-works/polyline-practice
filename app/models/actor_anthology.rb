@@ -1,0 +1,2 @@
+class ActorAnthology < ApplicationRecord
+end
