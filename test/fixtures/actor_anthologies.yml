@@ -1,8 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  picture_url: MyString
+  name: "Philip Seymour Hoffman"
+  picture_url: https://en.wikipedia.org/wiki/File:Philip_Seymour_Hoffman_2011.jpg
 
 two:
   name: MyString
