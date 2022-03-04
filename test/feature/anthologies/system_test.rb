@@ -2,7 +2,6 @@ require "application_system_test_case"
 
 class AnthologiesTest < ApplicationSystemTestCase
   setup do
-    # @point_of_interest = point_of_interests(:one)
     # @anthology = anthologies(:one)
   end
 
