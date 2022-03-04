@@ -115,6 +115,10 @@ Now, this was a copy-paste job from https://github.com/josh-works/polyline-pract
 
 Cool. `rails test` runs cleanly, I've skipped my janky system tests, lets see if I can TDD my way into a new feature...
 
+https://randomuser.me/
+
+tons of progress. 
+
 
 
 

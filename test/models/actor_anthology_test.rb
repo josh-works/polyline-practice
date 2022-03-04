@@ -5,6 +5,7 @@ class ActorAnthologyTest < ActiveSupport::TestCase
     @aa = actor_anthologies(:one)
   end
   
+   
   test "it has a collection of movies" do
     skip
     assert @aa.movies

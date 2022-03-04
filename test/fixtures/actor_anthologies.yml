@@ -3,7 +3,7 @@
 one:
   name: "Philip Seymour Hoffman"
   picture_url: https://en.wikipedia.org/wiki/File:Philip_Seymour_Hoffman_2011.jpg
-
-two:
-  name: MyString
-  picture_url: MyString
+  birth_year: 1967
+  death_year: nil
+  birth_city: "Fairport, NY"
+  

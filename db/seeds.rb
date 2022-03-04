@@ -62,3 +62,25 @@ PointOfInterest.find_or_create_by(
     coords: coords.sample,
   ).inspect
 end
+
+#############################
+# Actor Anthologies Feature #
+#############################
+
+aa = ActorAnthology.create(
+  name: "Philip Seymour Hoffman",
+  image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Philip_Seymour_Hoffman_2011.jpg/440px-Philip_Seymour_Hoffman_2011.jpg",
+  birth_year: 1967,
+  death_year: nil,
+  birth_city: "Fairport, NY"
+)
+
+5.times do |n|
+  aa = ActorAnthology.create(
+    name: Faker::Name.name,
+    image_url: Faker::Avatar.image,
+    birth_year: 1933,
+    death_year: 2002
+  )
+  puts aa.name
+end
