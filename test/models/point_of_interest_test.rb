@@ -5,6 +5,7 @@ class PointOfInterestTest < ActiveSupport::TestCase
   #   assert true
   # end
   test "build_lat_long_from_coords" do
+    
     poi = PointOfInterest.new(
       description: "1",
       icon: "icon.png",
